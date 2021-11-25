@@ -23,7 +23,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Despesas Pessoais 2'),
+        title: const Text('Despesas Pessoais'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
