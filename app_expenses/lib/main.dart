@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, sized_box_for_whitespace
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, sized_box_for_whitespace, deprecated_member_use
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +14,11 @@ class ExpensesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
-    );
+        home: MyHomePage(),
+        theme: ThemeData(
+          primarySwatch: Colors.purple,
+          accentColor: Colors.amber,
+        ));
   }
 }
 
