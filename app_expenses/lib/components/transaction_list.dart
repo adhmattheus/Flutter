@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors, sized_box_for_whitespace, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import '../models/transaction.dart';
@@ -11,21 +11,21 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 300,
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 Text(
                   'Nenhuma Transação Cadastrada!',
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                const SizedBox(height: 20),
-                SizedBox(
+                SizedBox(height: 20),
+                Container(
                   height: 200,
                   child: Image.asset(
-                    'assets/imagens/waiting.png',
+                    'assets/images/waiting.png',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -39,7 +39,7 @@ class TransactionList extends StatelessWidget {
                   child: Row(
                     children: <Widget>[
                       Container(
-                        margin: const EdgeInsets.symmetric(
+                        margin: EdgeInsets.symmetric(
                           horizontal: 15,
                           vertical: 10,
                         ),
@@ -49,7 +49,7 @@ class TransactionList extends StatelessWidget {
                             width: 2,
                           ),
                         ),
-                        padding: const EdgeInsets.all(10),
+                        padding: EdgeInsets.all(10),
                         child: Text(
                           'R\$ ${tr.value.toStringAsFixed(2)}',
                           style: TextStyle(
@@ -68,7 +68,7 @@ class TransactionList extends StatelessWidget {
                           ),
                           Text(
                             DateFormat('d MMM y').format(tr.date),
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.grey,
                             ),
                           ),
