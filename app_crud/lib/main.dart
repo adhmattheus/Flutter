@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:app_crud/routes/app_routes.dart';
+import 'package:app_crud/views/user_form.dart';
 import 'package:flutter/material.dart';
 import 'package:app_crud/provider/users.dart';
 import 'package:app_crud/views/user_list.dart';
@@ -26,7 +28,10 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: UserList(),
+        routes: {
+          AppRoutes.HOME: (_) => UserList(),
+          AppRoutes.USER_FORM: (_) => UserForm()
+        },
       ),
     );
   }
