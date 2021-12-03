@@ -48,8 +48,14 @@ class Users with ChangeNotifier {
                 email: user.email,
                 avatarUrl: user.avatarUrl,
               ));
+    }
+    notifyListeners();
+  }
 
+  void remove(User user) {
+    if (user != null && user.id != null) {
+      _items.remove(user.id);
       notifyListeners();
     }
-  } //adicionar
+  }
 }

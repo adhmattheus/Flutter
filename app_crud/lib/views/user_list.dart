@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 class UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Users users = Provider.of(context, listen: false);
+    final Users users = Provider.of(context);
 
     return Scaffold(
       appBar: AppBar(
