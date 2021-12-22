@@ -1,8 +1,8 @@
 // ignore_for_file: constant_identifier_names, unnecessary_const
 
-import 'package:app_screens/models/category.dart';
-import '../models/category.dart';
 import 'package:flutter/material.dart';
+
+import '../models/category.dart';
 import '../models/meal.dart';
 
 const DUMMY_CATEGORIES = const [
@@ -13,7 +13,7 @@ const DUMMY_CATEGORIES = const [
   ),
   Category(
     id: 'c2',
-    title: 'Rápido e Fácil',
+    title: 'Rápido & Fácil',
     color: Colors.red,
   ),
   Category(
@@ -24,12 +24,12 @@ const DUMMY_CATEGORIES = const [
   Category(
     id: 'c4',
     title: 'Alemã',
-    color: Colors.indigoAccent,
+    color: Colors.amber,
   ),
   Category(
     id: 'c5',
-    title: 'Leve e Saudável',
-    color: Colors.amber,
+    title: 'Leve & Saudável',
+    color: Colors.indigo,
   ),
   Category(
     id: 'c6',
