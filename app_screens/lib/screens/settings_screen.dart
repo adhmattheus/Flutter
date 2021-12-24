@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 
@@ -6,7 +6,8 @@ import '../components/main_drawer.dart';
 import '../models/settings.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  final Function(Settings) onSettingsChanged;
+  const SettingsScreen(this.onSettingsChanged);
 
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -25,7 +26,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
       title: Text(title),
       subtitle: Text(subtitle),
       value: value,
-      onChanged: onChanged,
+      onChanged: (value) {
+        onChanged(value);
+        widget.onSettingsChanged(settings);
+      },
     );
   }
 
