@@ -1,10 +1,12 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
 
 class MealDetailScreen extends StatelessWidget {
-  const MealDetailScreen({Key? key}) : super(key: key);
+  final Function(Meal) onToggleFavorite;
+  final bool Function(Meal) isFavorite;
+  const MealDetailScreen(this.onToggleFavorite, this.isFavorite);
 
   Widget _createSectionTitle(BuildContext context, String title) {
     return Container(
@@ -91,9 +93,9 @@ class MealDetailScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.star),
+          child: Icon(isFavorite(meal) ? Icons.star : Icons.star_border),
           onPressed: () {
-            Navigator.of(context).pop(meal.title);
+            onToggleFavorite(meal);
           }),
     );
   }

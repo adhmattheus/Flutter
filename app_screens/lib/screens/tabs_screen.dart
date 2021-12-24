@@ -1,28 +1,39 @@
-// ignore_for_file: prefer_const_constructors, deprecated_member_use, unused_field
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, deprecated_member_use
 
 import 'package:flutter/material.dart';
+
 import 'categories_screen.dart';
 import 'favorite_screen.dart';
 import '../components/main_drawer.dart';
+import '../models/meal.dart';
 
 class TabsScreen extends StatefulWidget {
-  const TabsScreen({Key? key}) : super(key: key);
+  final List<Meal> favoriteMeals;
+
+  const TabsScreen(this.favoriteMeals);
 
   @override
-  State<TabsScreen> createState() => _TabsScreenState();
+  _TabsScreenState createState() => _TabsScreenState();
 }
 
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedScreenIndex = 0;
+
   final List<String> _titles = [
     'Lista de Categorias',
     'Meus Favoritos',
   ];
 
-  final List<Widget> _screens = [
-    CategoriesScreen(),
-    FavoriteScreen(),
-  ];
+  List<Widget> _screens = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      CategoriesScreen(),
+      FavoriteScreen(widget.favoriteMeals),
+    ];
+  }
 
   _selectScreen(int index) {
     setState(() {
@@ -48,11 +59,11 @@ class _TabsScreenState extends State<TabsScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
-            title: Text('Categorias'),
+            label: 'Categorias',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
-            title: Text('Favoritos'),
+            label: 'Favoritos',
           ),
         ],
       ),
