@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:newlist/components/Planetalista.dart';
 import 'Planetrow.dart';
 
 class Pagebody extends StatelessWidget {
@@ -8,6 +9,6 @@ class Pagebody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Planetrow();
+    return Planetrow(planetas[0]);
   }
 }
